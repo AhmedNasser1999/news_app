@@ -11,7 +11,7 @@ class CategoryItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
           child: SizedBox(
             width: 90,
-            height: 75,
+            height: 60,
             child: Image.asset(
               'assets/images/1.jpeg',
               fit: BoxFit.cover,
@@ -23,7 +23,7 @@ class CategoryItem extends StatelessWidget {
           child: Container(
             color: Colors.black26,
             width: 90,
-            height: 75,
+            height: 60,
             alignment: Alignment.center,
             child: const Text(
               'Ahmed',
