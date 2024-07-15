@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/utils/constants/colors.dart';
 import 'package:news_app/views/widgets/app_bar_icons.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -30,7 +31,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               TextSpan(
                 text: ' News',
                 style: TextStyle(
-                  color: Color.fromARGB(255, 25, 134, 223),
+                  color: AppColors.primaryColor,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),

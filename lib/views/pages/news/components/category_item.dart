@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/utils/constants/colors.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({super.key});
@@ -28,7 +29,7 @@ class CategoryItem extends StatelessWidget {
             child: const Text(
               'Ahmed',
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.categorieTitleTextColor,
                 fontWeight: FontWeight.bold,
                 fontSize: 13.0,
               ),

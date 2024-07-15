@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/utils/constants/colors.dart';
 
 class BreakingNewsItem extends StatelessWidget {
   const BreakingNewsItem({super.key});
@@ -27,12 +28,12 @@ class BreakingNewsItem extends StatelessWidget {
               height: 30,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
-                color: const Color.fromARGB(255, 25, 134, 223),
+                color: AppColors.primaryColor,
               ),
               child: const Text(
                 'Ahmed',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.brakingNewsTextColor,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -49,7 +50,7 @@ class BreakingNewsItem extends StatelessWidget {
                   Text(
                     'CNN • 8 minutes ago',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: AppColors.brakingNewsTextColor,
                       fontSize: 12.0,
                       fontWeight: FontWeight.bold,
                     ),
@@ -59,7 +60,7 @@ class BreakingNewsItem extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: AppColors.brakingNewsTextColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 16.0,
                     ),

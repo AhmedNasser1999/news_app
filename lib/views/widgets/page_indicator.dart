@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:news_app/providers/carousel_provider.dart';
+import 'package:news_app/utils/constants/colors.dart';
 import 'package:provider/provider.dart';
 
 class CustomPageIndicator extends StatelessWidget {
@@ -28,7 +29,7 @@ class CustomPageIndicator extends StatelessWidget {
               borderRadius: isActive ? BorderRadius.circular(10.0) : null,
               shape: isActive ? BoxShape.rectangle : BoxShape.circle,
               color: isActive
-                  ? const Color.fromARGB(255, 25, 134, 223)
+                  ? AppColors.primaryColor
                   : Colors.grey.withOpacity(0.3), // Ensure valid opacity
             ),
           );

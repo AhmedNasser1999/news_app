@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/utils/constants/colors.dart';
 import 'package:news_app/views/pages/news/breaking_news.dart';
 import 'package:news_app/views/pages/news/category_list.dart';
 import 'package:news_app/views/pages/news/trending_news.dart';
@@ -12,37 +13,34 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Container(
-        color: Colors.white,
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                const CustomAppBar(),
-                TitleNewsBanner(
-                  titleText: 'Categories 📂',
-                  onButtonPressed: () {},
-                ),
-                const SizedBox(height: 8.0),
-                const CategoryList(),
-                TitleNewsBanner(
-                  titleText: 'Braking News 🚨',
-                  onButtonPressed: () {},
-                ),
-                const SizedBox(height: 8.0),
-                BrakingNews(),
-                const SizedBox(height: 8.0),
-                const CustomPageIndicator(),
-                TitleNewsBanner(
-                  titleText: 'Trending News 📈',
-                  onButtonPressed: () {},
-                ),
-                const SizedBox(height: 8.0),
-                const TrandingNews()
-              ],
-            ),
+      backgroundColor: AppColors.scaffoldBackgroundColor,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              const CustomAppBar(),
+              TitleNewsBanner(
+                titleText: 'Categories 📂',
+                onButtonPressed: () {},
+              ),
+              const SizedBox(height: 8.0),
+              const CategoryList(),
+              TitleNewsBanner(
+                titleText: 'Braking News 🚨',
+                onButtonPressed: () {},
+              ),
+              const SizedBox(height: 8.0),
+              BrakingNews(),
+              const SizedBox(height: 8.0),
+              const CustomPageIndicator(),
+              TitleNewsBanner(
+                titleText: 'Trending News 📈',
+                onButtonPressed: () {},
+              ),
+              const SizedBox(height: 8.0),
+              const TrandingNews()
+            ],
           ),
         ),
       ),

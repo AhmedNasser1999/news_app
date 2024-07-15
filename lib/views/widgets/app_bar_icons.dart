@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/utils/constants/colors.dart';
 
 class AppBarIcon extends StatelessWidget {
   final IconData icon;
@@ -16,7 +17,7 @@ class AppBarIcon extends StatelessWidget {
       width: 40.0,
       height: 40.0,
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: AppColors.iconBackgroundColor,
         shape: BoxShape.circle,
       ),
       child: IconButton(

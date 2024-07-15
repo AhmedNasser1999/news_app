@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/utils/constants/colors.dart';
 
 class TrendingNewsItem extends StatelessWidget {
   const TrendingNewsItem({super.key});
@@ -34,7 +35,7 @@ class TrendingNewsItem extends StatelessWidget {
                 Text(
                   'Sport',
                   style: TextStyle(
-                    color: Colors.grey,
+                    color: AppColors.trendingTextColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -48,7 +49,6 @@ class TrendingNewsItem extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.justify,
                     style: TextStyle(
-                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 16.0,
                     ),
@@ -57,7 +57,7 @@ class TrendingNewsItem extends StatelessWidget {
                 Text(
                   'CNN • 8 minutes ago',
                   style: TextStyle(
-                    color: Colors.grey,
+                    color: AppColors.trendingTextColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

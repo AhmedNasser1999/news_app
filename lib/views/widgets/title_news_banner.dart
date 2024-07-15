@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/utils/constants/colors.dart';
 
 class TitleNewsBanner extends StatelessWidget {
   final String titleText;
@@ -28,7 +29,7 @@ class TitleNewsBanner extends StatelessWidget {
             'View all',
             style: TextStyle(
               fontSize: 15.0,
-              color: Color.fromARGB(255, 25, 134, 223),
+              color: AppColors.primaryColor,
             ),
           ),
         ),
