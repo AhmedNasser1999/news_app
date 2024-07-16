@@ -2,41 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:news_app/utils/constants/colors.dart';
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key});
+  final int index;
+  CategoryItem({super.key, required this.index});
+  final List<String> categories = [
+    'Business',
+    'General',
+    'Health',
+    'Science',
+    'Sports',
+    'Technology',
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(10.0),
-          child: SizedBox(
-            width: 90,
-            height: 60,
-            child: Image.asset(
-              'assets/images/1.jpeg',
-              fit: BoxFit.cover,
-            ),
-          ),
+    return Container(
+      width: 75.0,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: AppColors.primaryColor,
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: Text(
+        categories[index], // Use the index to get the appropriate category
+        style: const TextStyle(
+          color: AppColors.categorieTitleTextColor,
+          fontSize: 13.0,
+          fontWeight: FontWeight.bold,
         ),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(10.0),
-          child: Container(
-            color: Colors.black26,
-            width: 90,
-            height: 60,
-            alignment: Alignment.center,
-            child: const Text(
-              'Ahmed',
-              style: TextStyle(
-                color: AppColors.categorieTitleTextColor,
-                fontWeight: FontWeight.bold,
-                fontSize: 13.0,
-              ),
-            ),
-          ),
-        )
-      ],
+      ),
     );
   }
 }

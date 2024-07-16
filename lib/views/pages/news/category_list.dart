@@ -7,14 +7,14 @@ class CategoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 75,
+      height: 35.0,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemCount: 20,
+        itemCount: 6,
         separatorBuilder: (BuildContext context, int index) =>
-            const SizedBox(width: 10),
+            const SizedBox(width: 8.0),
         itemBuilder: (BuildContext context, int index) {
-          return const CategoryItem();
+          return CategoryItem(index: index);
         },
       ),
     );
