@@ -15,19 +15,22 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 75.0,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: AppColors.primaryColor,
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: Text(
-        categories[index], // Use the index to get the appropriate category
-        style: const TextStyle(
-          color: AppColors.categorieTitleTextColor,
-          fontSize: 13.0,
-          fontWeight: FontWeight.bold,
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        width: 75.0,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: AppColors.primaryColor,
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Text(
+          categories[index], // Use the index to get the appropriate category
+          style: const TextStyle(
+            color: AppColors.categorieTitleTextColor,
+            fontSize: 13.0,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
