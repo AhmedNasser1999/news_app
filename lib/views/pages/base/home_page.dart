@@ -20,6 +20,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: [
               const CustomAppBar(),
+              const SizedBox(height: 5.0),
               TitleNewsBanner(
                 titleText: 'Categories 📂',
                 onButtonPressed: () {},
