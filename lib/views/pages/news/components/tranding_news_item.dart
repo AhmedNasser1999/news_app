@@ -28,20 +28,30 @@ class TrendingNewsItem extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8.0),
-          const Expanded(
+          Expanded(
             child: SizedBox(
               height: 90.0,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Sport',
-                    style: TextStyle(
-                      color: AppColors.trendingTextColor,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Sport',
+                        style: TextStyle(
+                          color: AppColors.trendingTextColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Image.asset(
+                        'assets/images/CNN.png',
+                        width: 30.0,
+                        height: 15.0,
+                      ),
+                    ],
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Text(
                       'This is a very long text that will be truncated after three lines. '
                       'This text is meant to demonstrate how you can use the Text widget in Flutter '

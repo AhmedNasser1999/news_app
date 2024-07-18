@@ -25,19 +25,15 @@ class BreakingNewsItem extends StatelessWidget {
               top: 10.0,
               left: 10.0,
               child: Container(
-                alignment: Alignment.center,
-                width: 60,
-                height: 30,
+                width: 60.0,
+                height: 30.0,
+                padding: const EdgeInsets.all(4.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(40.0),
-                  color: AppColors.primaryColor,
+                  color: Colors.white,
                 ),
-                child: const Text(
-                  'Ahmed',
-                  style: TextStyle(
-                    color: AppColors.brakingNewsTextColor,
-                    fontWeight: FontWeight.bold,
-                  ),
+                child: Image.asset(
+                  'assets/images/CNN.png',
                 ),
               ),
             ),
