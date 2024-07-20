@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/providers/categories_provider.dart';
 import 'package:news_app/utils/constants/colors.dart';
+import 'package:provider/provider.dart';
 
 class CategoryItem extends StatelessWidget {
   final int index;
-  final int current = 0;
+
   CategoryItem({super.key, required this.index});
-  final List<String> categories = [
-    'Business',
-    'General',
-    'Health',
-    'Science',
-    'Sports',
-    'Technology',
-  ];
 
   @override
   Widget build(BuildContext context) {
+    final int current = Provider.of<CategoriesProvider>(context).current;
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Provider.of<CategoriesProvider>(context, listen: false)
+            .setCurrentCategory(index);
+      },
       child: Container(
         width: 75.0,
         alignment: Alignment.center,
@@ -32,11 +30,11 @@ class CategoryItem extends StatelessWidget {
                 ),
         ),
         child: Text(
-          categories[index],
+          Provider.of<CategoriesProvider>(context).categories[index],
           style: TextStyle(
             color: current == index
                 ? AppColors.categorieTitleTextColor
-                : Colors.black, //==>
+                : Colors.black,
             fontSize: 13.0,
             fontWeight: FontWeight.bold,
           ),

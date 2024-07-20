@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CarouselProvider with ChangeNotifier {
+class BrakingNewsProvider with ChangeNotifier {
   int _currentIndex = 0;
   final int _pageCount = 5;
 

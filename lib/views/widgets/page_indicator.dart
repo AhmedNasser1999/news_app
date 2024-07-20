@@ -1,7 +1,7 @@
 // page_indicator.dart
 
 import 'package:flutter/material.dart';
-import 'package:news_app/providers/carousel_provider.dart';
+import 'package:news_app/providers/braking_news_provider.dart';
 import 'package:news_app/utils/constants/colors.dart';
 import 'package:provider/provider.dart';
 
@@ -10,7 +10,7 @@ class CustomPageIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final carouselProvider = Provider.of<CarouselProvider>(context);
+    final carouselProvider = Provider.of<BrakingNewsProvider>(context);
     var currentIndex = carouselProvider.currentIndex;
     final pageCount = carouselProvider.pageCount;
     return Row(
