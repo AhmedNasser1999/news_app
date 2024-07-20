@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 class CategoryItem extends StatelessWidget {
   final int index;
 
-  CategoryItem({super.key, required this.index});
+  const CategoryItem({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
