@@ -3,6 +3,7 @@ import 'package:news_app/utils/constants/colors.dart';
 
 class CategoryItem extends StatelessWidget {
   final int index;
+  final int current = 0;
   CategoryItem({super.key, required this.index});
   final List<String> categories = [
     'Business',
@@ -21,13 +22,21 @@ class CategoryItem extends StatelessWidget {
         width: 75.0,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: AppColors.primaryColor,
+          color: current == index ? AppColors.primaryColor : Colors.white, //==>
           borderRadius: BorderRadius.circular(10.0),
+          border: current == index
+              ? null
+              : Border.all(
+                  color: AppColors.primaryColor,
+                  width: 2.0,
+                ),
         ),
         child: Text(
-          categories[index], // Use the index to get the appropriate category
-          style: const TextStyle(
-            color: AppColors.categorieTitleTextColor,
+          categories[index],
+          style: TextStyle(
+            color: current == index
+                ? AppColors.categorieTitleTextColor
+                : Colors.black, //==>
             fontSize: 13.0,
             fontWeight: FontWeight.bold,
           ),
