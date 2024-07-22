@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/providers/categories_provider.dart';
+import 'package:news_app/utils/constants/colors.dart';
 import 'package:news_app/views/pages/news/components/category_item.dart';
 import 'package:provider/provider.dart';
 

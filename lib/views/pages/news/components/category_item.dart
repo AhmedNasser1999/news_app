@@ -10,36 +10,45 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int current = Provider.of<CategoriesProvider>(context).current;
+    final categoriesProvider = Provider.of<CategoriesProvider>(context);
+    final int current = categoriesProvider.current;
+    final bool isHomeCategory = index == 0;
+
     return GestureDetector(
-      onTap: () {
-        Provider.of<CategoriesProvider>(context, listen: false)
-            .setCurrentCategory(index);
-      },
-      child: Container(
-        width: 75.0,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: current == index ? AppColors.primaryColor : Colors.white,
-          borderRadius: BorderRadius.circular(10.0),
-          border: current == index
-              ? null
-              : Border.all(
-                  color: AppColors.primaryColor,
-                  width: 2.0,
+      onTap: () => categoriesProvider.setCurrentCategory(index),
+      child: isHomeCategory
+          ? GestureDetector(
+              onTap: () => categoriesProvider.setCurrentCategory(index),
+              child: Icon(
+                size: 35.0,
+                Icons.home,
+                color: current == index ? AppColors.primaryColor : Colors.black,
+              ),
+            )
+          : Container(
+              width: 75.0,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: current == index ? AppColors.primaryColor : Colors.white,
+                borderRadius: BorderRadius.circular(10.0),
+                border: current == index
+                    ? null
+                    : Border.all(
+                        color: AppColors.primaryColor,
+                        width: 2.0,
+                      ),
+              ),
+              child: Text(
+                categoriesProvider.categories[index],
+                style: TextStyle(
+                  color: current == index
+                      ? AppColors.categorieTitleTextColor
+                      : Colors.black,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.bold,
                 ),
-        ),
-        child: Text(
-          Provider.of<CategoriesProvider>(context).categories[index],
-          style: TextStyle(
-            color: current == index
-                ? AppColors.categorieTitleTextColor
-                : Colors.black,
-            fontSize: 13.0,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+              ),
+            ),
     );
   }
 }
