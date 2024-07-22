@@ -2,30 +2,21 @@ import 'package:dio/dio.dart';
 import 'package:news_app/utils/constants/api_constants.dart';
 
 class CategoriesService {
-  late BaseOptions options;
-  late Dio dio;
-  String? categoryName;
-  String endPoint = '/top-headlines';
-
-  CategoriesService({required this.categoryName}) {
-    options = BaseOptions(
-      baseUrl: ApiConstants.baseUrl,
-      queryParameters: {
-        'apiKey': ApiConstants.apiKey,
-        'country': 'eg',
-        'category': categoryName,
-      },
-    );
-    dio = Dio(options);
-  }
-
-  Future<Response> getTopHeadlines() async {
+  final Dio dio = Dio();
+  Future<Map<String, dynamic>> getCategories(categoryName) async {
     try {
-      Response response = await dio.get(endPoint);
-
-      return response;
+      final response = await dio.get(
+        '${ApiConstants.baseUrl}/top-headlines',
+        queryParameters: {
+          'category': categoryName,
+          'apiKey': ApiConstants.apiKey,
+          'country': 'eg'
+        },
+      );
+      return response.data;
     } catch (e) {
-      rethrow;
+      print(e.toString());
+      return {};
     }
   }
 }
