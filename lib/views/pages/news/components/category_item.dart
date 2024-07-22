@@ -26,7 +26,7 @@ class CategoryItem extends StatelessWidget {
               ),
             )
           : Container(
-              width: 75.0,
+              width: 85.0,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: current == index ? AppColors.primaryColor : Colors.white,
