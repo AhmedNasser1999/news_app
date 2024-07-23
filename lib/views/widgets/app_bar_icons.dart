@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:news_app/utils/constants/colors.dart';
 
 class AppBarIcon extends StatelessWidget {
-  final IconData icon;
+  final Widget child;
   final VoidCallback onPressed;
 
   const AppBarIcon({
     super.key,
-    required this.icon,
+    required this.child,
     required this.onPressed,
   });
 
@@ -21,9 +21,7 @@ class AppBarIcon extends StatelessWidget {
         shape: BoxShape.circle,
       ),
       child: IconButton(
-        icon: Icon(
-          icon,
-        ),
+        icon: child,
         onPressed: onPressed,
       ),
     );

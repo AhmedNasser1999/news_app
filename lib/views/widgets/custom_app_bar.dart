@@ -14,7 +14,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         AppBarIcon(
-          icon: Icons.menu,
+          child: const Icon(
+            Icons.menu,
+            color: Colors.black,
+          ),
           onPressed: () {},
         ),
         RichText(
@@ -39,10 +42,22 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ],
           ),
         ),
-        AppBarIcon(
-          icon: Icons.dark_mode,
-          onPressed: () {},
-        ),
+        Row(
+          children: [
+            AppBarIcon(
+              child: const Text('🌎', style: TextStyle(fontSize: 17.0)),
+              onPressed: () {},
+            ),
+            const SizedBox(width: 8.0),
+            AppBarIcon(
+              child: const Icon(
+                Icons.dark_mode,
+                color: Colors.black,
+              ),
+              onPressed: () {},
+            ),
+          ],
+        )
       ],
     );
   }
