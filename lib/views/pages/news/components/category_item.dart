@@ -13,6 +13,7 @@ class CategoryItem extends StatelessWidget {
     final categoriesProvider = Provider.of<CategoriesProvider>(context);
     final int current = categoriesProvider.current;
     final bool isHomeCategory = index == 0;
+    final String categoryName = categoriesProvider.categories[index];
 
     return GestureDetector(
       onTap: () => categoriesProvider.setCurrentCategory(index),
@@ -26,7 +27,7 @@ class CategoryItem extends StatelessWidget {
               ),
             )
           : Container(
-              width: 85.0,
+              width: categoryName.length >= 10 ? 100 : 70,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: current == index ? AppColors.primaryColor : Colors.white,
@@ -39,7 +40,7 @@ class CategoryItem extends StatelessWidget {
                       ),
               ),
               child: Text(
-                categoriesProvider.categories[index],
+                categoryName,
                 style: TextStyle(
                   color: current == index
                       ? AppColors.categorieTitleTextColor
