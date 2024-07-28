@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/providers/braking_news_provider.dart';
-import 'package:news_app/views/pages/news/components/braking_news_item.dart';
+import 'package:news_app/views/widgets/braking_news_item.dart';
 import 'package:provider/provider.dart';
 
 class BrakingNews extends StatelessWidget {

@@ -45,7 +45,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         Row(
           children: [
             AppBarIcon(
-              child: const Text('🌎', style: TextStyle(fontSize: 17.0)),
+              child: const Text('🌎',
+                  style: TextStyle(
+                    fontSize: 17.0,
+                  )),
               onPressed: () {},
             ),
             const SizedBox(width: 8.0),

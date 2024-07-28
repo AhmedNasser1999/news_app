@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 class CategoriesProvider with ChangeNotifier {
   int _current = 0;
+  final PageController _pageController = PageController();
   final int categoryItemCount = 8;
   final List<String> categories = [
     '/',
     'Business',
-    'entertainment',
+    'Entertainment',
     'General',
     'Health',
     'Science',
@@ -15,9 +16,13 @@ class CategoriesProvider with ChangeNotifier {
   ];
 
   int get current => _current;
+  PageController get pageController => _pageController;
 
   void setCurrentCategory(int index) {
     _current = index;
+    _pageController.jumpToPage(
+      index,
+    );
     notifyListeners();
   }
 }
