@@ -21,6 +21,12 @@ class BreakingNewsItem extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(25.0),
+              child: Container(
+                color: Colors.black.withOpacity(0.2),
+              ),
+            ),
             Positioned(
               top: 10.0,
               left: 10.0,

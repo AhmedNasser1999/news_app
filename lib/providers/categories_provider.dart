@@ -39,7 +39,7 @@ class CategoriesProvider with ChangeNotifier {
       final double width = _calculateCategoryWidth(name, i);
       offset += width;
     }
-    offset += 8.0 * index; // Adding padding between items
+    offset += 8.0 * index;
 
     listViewController.animateTo(
       offset,

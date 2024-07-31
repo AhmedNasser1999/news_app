@@ -29,8 +29,8 @@ class TrendingNewsItem extends StatelessWidget {
           ),
           const SizedBox(width: 8.0),
           Expanded(
-            child: SizedBox(
-              height: 90.0,
+            child: Container(
+              constraints: const BoxConstraints(maxHeight: 90.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -51,7 +51,7 @@ class TrendingNewsItem extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const Expanded(
+                  const Flexible(
                     child: Text(
                       'This is a very long text that will be truncated after three lines. '
                       'This text is meant to demonstrate how you can use the Text widget in Flutter '
@@ -59,14 +59,13 @@ class TrendingNewsItem extends StatelessWidget {
                       'to show only a limited number of lines and display an ellipsis at the end if the text overflows.',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.justify,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16.0,
                       ),
                     ),
                   ),
-                  Text(
+                  const Text(
                     'CNN • 8 minutes ago',
                     style: TextStyle(
                       color: AppColors.trendingTextColor,
