@@ -22,7 +22,7 @@ class NewsHomeCategory extends StatelessWidget {
           //-----------------------------------
           const TitleNewsBanner(titleText: 'Trending News 📈'),
           const SizedBox(height: 8.0),
-          const TrandingNews()
+          const Expanded(child: TrandingNews())
         ],
       ),
     );

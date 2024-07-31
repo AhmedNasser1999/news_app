@@ -13,6 +13,7 @@ dependencies:
   dio:
   cached_network_image:
   cupertino_icons:
+  html:
   flutter:
     sdk: flutter
 

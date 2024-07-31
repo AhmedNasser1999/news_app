@@ -6,14 +6,12 @@ class TrandingNews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.separated(
-        physics: const BouncingScrollPhysics(),
-        itemCount: 20,
-        separatorBuilder: (BuildContext context, int index) => const Divider(),
-        itemBuilder: (BuildContext context, int index) =>
-            const TrendingNewsItem(),
-      ),
+    return ListView.separated(
+      physics: const BouncingScrollPhysics(),
+      itemCount: 20,
+      separatorBuilder: (BuildContext context, int index) => const Divider(),
+      itemBuilder: (BuildContext context, int index) =>
+          const TrendingNewsItem(),
     );
   }
 }
