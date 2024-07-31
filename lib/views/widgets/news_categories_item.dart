@@ -14,16 +14,17 @@ class NewsCategoryItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 8.0),
             ClipRRect(
               borderRadius: BorderRadius.circular(20.0),
               child: Image.asset(
                 'assets/images/1.jpeg',
                 fit: BoxFit.cover,
                 width: double.infinity,
-                height: 160, // Adjust the height to fit the remaining content
+                height: 160,
               ),
             ),
-            const SizedBox(height: 8.0), // Add some spacing
+            const SizedBox(height: 8.0),
             const Flexible(
               child: Text(
                 'This is a very long text that will be truncated after three lines. '

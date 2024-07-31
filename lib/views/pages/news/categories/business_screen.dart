@@ -10,7 +10,12 @@ class Business extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) => const NewsCategoryItem(),
       separatorBuilder: (BuildContext context, int index) {
-        return const Divider();
+        return const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10.0),
+          child: Divider(
+            thickness: 2.0,
+          ),
+        );
       },
       itemCount: 20,
     );
