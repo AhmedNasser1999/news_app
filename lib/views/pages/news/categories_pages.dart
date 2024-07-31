@@ -22,8 +22,10 @@ class CategoriesPages extends StatelessWidget {
         width: double.infinity,
         child: PageView(
           controller: categoriesProvider.pageController,
-          onPageChanged: (index) =>
-              categoriesProvider.setCurrentCategory(index),
+          onPageChanged: (index) {
+            categoriesProvider.setCurrentCategory(index);
+            categoriesProvider.animateToCategory(index);
+          },
           children: const [
             NewsHomeCategory(),
             Business(),

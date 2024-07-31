@@ -11,7 +11,7 @@ class CategoryList extends StatelessWidget {
     return SizedBox(
       height: 35.0,
       child: ListView.separated(
-        physics: const BouncingScrollPhysics(),
+        controller: Provider.of<CategoriesProvider>(context).listViewController,
         scrollDirection: Axis.horizontal,
         itemCount: Provider.of<CategoriesProvider>(context).categoryItemCount,
         separatorBuilder: (BuildContext context, int index) =>
