@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/views/pages/news/breaking_news.dart';
-import 'package:news_app/views/pages/news/trending_news.dart';
-import 'package:news_app/views/widgets/page_indicator.dart';
-import 'package:news_app/views/widgets/title_news_banner.dart';
+import 'package:news_app/views/pages/news/breaking_news_page.dart';
+import 'package:news_app/views/pages/news/trending_news_page.dart';
+import 'package:news_app/views/widgets/page_indicator_widget.dart';
+import 'package:news_app/views/widgets/title_news_banner_widget.dart';
 
 class NewsHomeCategory extends StatelessWidget {
   const NewsHomeCategory({super.key});

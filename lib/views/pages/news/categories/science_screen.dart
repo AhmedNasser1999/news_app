@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/views/widgets/news_categories_item.dart';
+import 'package:news_app/views/widgets/news_category_item_widget.dart';
 
 class Science extends StatelessWidget {
   const Science({super.key});
