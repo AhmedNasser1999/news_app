@@ -14,7 +14,7 @@ class CategoryItem extends StatelessWidget {
     final categoriesProvider = Provider.of<CategoriesProvider>(context);
     final int current = categoriesProvider.current;
     final bool isHomeCategory = index == 0;
-    final String categoryName = categoriesProvider.categories[index];
+    final String categoryName = categoriesProvider.categoriesList[index];
 
     return GestureDetector(
       onTap: () {

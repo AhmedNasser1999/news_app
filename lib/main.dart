@@ -9,7 +9,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => BrakingNewsProvider()),
-        ChangeNotifierProvider(create: (context) => CategoriesProvider())
+        ChangeNotifierProvider(create: (context) => CategoriesProvider()),
       ],
       child: const MyApp(),
     ),

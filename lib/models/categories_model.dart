@@ -1,24 +1,42 @@
 class CategoriesModel {
-  final String author;
-  final String title;
-  final String url;
-  final String urlToImage;
-  final String publishedAt;
+  List<Articles>? articles;
 
-  CategoriesModel({
-    required this.author,
-    required this.title,
-    required this.url,
-    required this.urlToImage,
-    required this.publishedAt,
-  });
+  CategoriesModel({this.articles});
 
   factory CategoriesModel.fromJson(Map<String, dynamic> json) {
     return CategoriesModel(
+      articles: json['articles'] != null
+          ? List<Articles>.from(
+              json['articles'].map(
+                (article) => Articles.fromJson(article),
+              ),
+            )
+          : null,
+    );
+  }
+}
+
+class Articles {
+  String? author;
+  String? title;
+  String? url;
+  String? urlToImage;
+  String? publishedAt;
+
+  Articles({
+    this.author,
+    this.title,
+    this.url,
+    this.urlToImage,
+    this.publishedAt,
+  });
+
+  factory Articles.fromJson(Map<String, dynamic> json) {
+    return Articles(
       author: json['author'],
       title: json['title'],
       url: json['url'],
-      urlToImage: json['urlToImage'] ?? '',
+      urlToImage: json['urlToImage'],
       publishedAt: json['publishedAt'],
     );
   }

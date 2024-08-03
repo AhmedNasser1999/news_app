@@ -27,14 +27,38 @@ class CategoriesPages extends StatelessWidget {
             categoriesProvider.animateToCategory(index);
           },
           children: const [
-            NewsHomeCategory(),
-            Business(),
-            Entertainment(),
-            General(),
-            Health(),
-            Science(),
-            Sports(),
-            Technology(),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
+              child: NewsHomeCategory(),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 9.0),
+              child: Business(),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 9.0),
+              child: Entertainment(),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 9.0),
+              child: General(),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 9.0),
+              child: Health(),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 9.0),
+              child: Science(),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 9.0),
+              child: Sports(),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 9.0),
+              child: Technology(),
+            ),
           ],
         ),
       ),

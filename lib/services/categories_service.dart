@@ -1,22 +1,25 @@
+import 'dart:developer';
 import 'package:dio/dio.dart';
+import 'package:news_app/models/categories_model.dart';
 import 'package:news_app/utils/constants/api_constants.dart';
 
 class CategoriesService {
-  final Dio dio = Dio();
-  Future<Map<String, dynamic>> getCategories(categoryName) async {
+  final Dio _dio = Dio();
+
+  Future<CategoriesModel?> getCategories({required String categoryName}) async {
     try {
-      final response = await dio.get(
+      final response = await _dio.get(
         '${ApiConstants.baseUrl}/top-headlines',
         queryParameters: {
           'category': categoryName,
           'apiKey': ApiConstants.apiKey,
-          'country': 'eg'
+          'country': 'eg',
         },
       );
-      return response.data;
+      return CategoriesModel.fromJson(response.data);
     } catch (e) {
-      print(e.toString());
-      return {};
+      log('Error getting categories: $e');
+      return null;
     }
   }
 }

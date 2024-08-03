@@ -12,17 +12,18 @@ class HomePage extends StatelessWidget {
     return const Scaffold(
       backgroundColor: AppColors.scaffoldBackgroundColor,
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              CustomAppBar(),
-              SizedBox(height: 8.0),
-              Categories(),
-              SizedBox(height: 8.0),
-              CategoriesPages(),
-            ],
-          ),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: CustomAppBar(),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Categories(),
+            ),
+            CategoriesPages(),
+          ],
         ),
       ),
     );
