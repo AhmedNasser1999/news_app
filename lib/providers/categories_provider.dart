@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/models/categories_model.dart';
+import 'package:news_app/models/business_model.dart';
+import 'package:news_app/models/entertainment_model.dart';
+import 'package:news_app/models/general_model.dart';
+import 'package:news_app/models/health_model.dart';
+import 'package:news_app/models/science_model.dart';
+import 'package:news_app/models/sports_model.dart';
+import 'package:news_app/models/technology_model.dart';
 import 'package:news_app/services/categories_service.dart';
+import 'package:news_app/utils/helpers/news_helper.dart';
 
 class CategoriesProvider with ChangeNotifier {
-  // Private variables for internal state management
   int _current = 0; // Current selected category index
   double offset = 0; // Current scroll offset
 
@@ -30,39 +36,120 @@ class CategoriesProvider with ChangeNotifier {
   final CategoriesService _service = CategoriesService();
 
   // Private variables for category data and loading state
-  CategoriesModel? _categories; // Holds the fetched categories data
-  bool _isLoading = false; // Indicates if the data is currently being fetched
+  BusinessModel? _business;
+  EntertainmentModel? _entertainment;
+  GeneralModel? _general;
+  HealthModel? _health;
+  ScienceModel? _science;
+  SportsModel? _sports;
+  TechonolgyModel? _techonolgy;
+
+  // Indicates if the data is currently being fetched
+  bool _isLoading = false;
 
   // Getters to expose private variables
-  int get current => _current; // Getter for current selected category index
-  CategoriesModel? get categories => _categories; // Getter for category data
-  bool get isLoading => _isLoading; // Getter for loading state
-  PageController get pageController =>
-      _pageController; // Getter for page controller
+  int get current => _current;
+  //--------------------------------
+  BusinessModel? get business => _business;
+  EntertainmentModel? get entertainment => _entertainment;
+  GeneralModel? get general => _general;
+  HealthModel? get health => _health;
+  ScienceModel? get science => _science;
+  SportsModel? get sports => _sports;
+  TechonolgyModel? get techonolgy => _techonolgy;
+  //-----------------------------------------
+  bool get isLoading => _isLoading;
+  PageController get pageController => _pageController;
 
-  // Method to fetch categories based on the selected category name
-  Future<void> fetchCategories(String categoryName) async {
-    _isLoading = true; // Set loading state to true
-    notifyListeners(); // Notify listeners to update UI
+  // Methods to fetch categories
+  Future<void> fetchCategoryBusiness() async {
+    _isLoading = true;
+    notifyListeners();
 
     // Fetch categories from the service
-    _categories = await _service.getCategories(categoryName: categoryName);
+    _business = await _service.getCategoryBusiness();
 
-    _isLoading = false; // Set loading state to false
-    notifyListeners(); // Notify listeners to update UI
+    _isLoading = false;
+    notifyListeners();
+  }
+
+  Future<void> fetchCategoryEntertainment() async {
+    _isLoading = true;
+    notifyListeners();
+
+    // Fetch categories from the service
+    _entertainment = await _service.getCategoryEntertainment();
+
+    _isLoading = false;
+    notifyListeners();
+  }
+
+  Future<void> fetchCategoryGeneral() async {
+    _isLoading = true;
+    notifyListeners();
+
+    // Fetch categories from the service
+    _general = await _service.getCategoryGeneral();
+
+    _isLoading = false;
+    notifyListeners();
+  }
+
+  Future<void> fetchCategoryScience() async {
+    _isLoading = true;
+    notifyListeners();
+
+    // Fetch categories from the service
+    _science = await _service.getCategoryScience();
+
+    _isLoading = false;
+    notifyListeners();
+  }
+
+  Future<void> fetchCategorySports() async {
+    _isLoading = true;
+    notifyListeners();
+
+    // Fetch categories from the service
+    _sports = await _service.getCategorySports();
+
+    _isLoading = false;
+    notifyListeners();
+  }
+
+  Future<void> fetchCategoryTechnology() async {
+    _isLoading = true;
+    notifyListeners();
+
+    // Fetch categories from the service
+    _techonolgy = await _service.getCategoryTechnology();
+
+    _isLoading = false;
+    notifyListeners();
+  }
+
+  Future<void> fetchCategoryHealth() async {
+    _isLoading = true;
+    notifyListeners();
+
+    // Fetch categories from the service
+    _health = await _service.getCategoryHealth();
+
+    _isLoading = false;
+    notifyListeners();
   }
 
   // Method to set the current category index and update the page view
   void setCurrentCategory(int index) {
     _current = index; // Update the current category index
     _pageController.jumpToPage(index); // Jump to the selected page
-    notifyListeners(); // Notify listeners to update UI
+    notifyListeners();
   }
 
   // Method to synchronize scroll offset with the list view
   void syncScroll(double offset) {
     listViewController.jumpTo(offset); // Sync the scroll offset
-    notifyListeners(); // Notify listeners to update UI
+    notifyListeners();
   }
 
   // Method to animate to a specific category in the list view
@@ -94,5 +181,10 @@ class CategoriesProvider with ChangeNotifier {
     } else {
       return 70.0; // Default width for other categories
     }
+  }
+
+//Function to fromat date
+  String formatDate(String date) {
+    return NewsHelper.formatDate(date);
   }
 }

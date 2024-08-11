@@ -32,31 +32,31 @@ class CategoriesPages extends StatelessWidget {
               child: NewsHomeCategory(),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 9.0),
+              padding: EdgeInsets.only(left: 9.0, right: 9.0, bottom: 9.0),
               child: Business(),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 9.0),
+              padding: EdgeInsets.only(left: 9.0, right: 9.0, bottom: 9.0),
               child: Entertainment(),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 9.0),
+              padding: EdgeInsets.only(left: 9.0, right: 9.0, bottom: 9.0),
               child: General(),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 9.0),
+              padding: EdgeInsets.only(left: 9.0, right: 9.0, bottom: 9.0),
               child: Health(),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 9.0),
+              padding: EdgeInsets.only(left: 9.0, right: 9.0, bottom: 9.0),
               child: Science(),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 9.0),
+              padding: EdgeInsets.only(left: 9.0, right: 9.0, bottom: 9.0),
               child: Sports(),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 9.0),
+              padding: EdgeInsets.only(left: 9.0, right: 9.0, bottom: 9.0),
               child: Technology(),
             ),
           ],

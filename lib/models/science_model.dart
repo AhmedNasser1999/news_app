@@ -1,10 +1,10 @@
-class CategoriesModel {
+class ScienceModel {
   List<Articles>? articles;
 
-  CategoriesModel({this.articles});
+  ScienceModel({this.articles});
 
-  factory CategoriesModel.fromJson(Map<String, dynamic> json) {
-    return CategoriesModel(
+  factory ScienceModel.fromJson(Map<String, dynamic> json) {
+    return ScienceModel(
       articles: json['articles'] != null
           ? List<Articles>.from(
               json['articles'].map(

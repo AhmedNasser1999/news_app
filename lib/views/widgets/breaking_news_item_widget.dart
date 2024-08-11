@@ -24,7 +24,7 @@ class BreakingNewsItem extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(25.0),
               child: Container(
-                color: Colors.black.withOpacity(0.2),
+                color: Colors.black.withOpacity(0.3),
               ),
             ),
             Positioned(
