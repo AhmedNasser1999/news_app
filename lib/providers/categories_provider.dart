@@ -10,8 +10,11 @@ import 'package:news_app/services/categories_service.dart';
 import 'package:news_app/utils/helpers/news_helper.dart';
 
 class CategoriesProvider with ChangeNotifier {
-  int _current = 0; // Current selected category index
-  double offset = 0; // Current scroll offset
+  // Current selected category index
+  int _current = 0;
+
+  // Current scroll offset
+  double offset = 0;
 
   // Controllers for managing page and list view scrolling
   final PageController _pageController = PageController();
@@ -43,13 +46,12 @@ class CategoriesProvider with ChangeNotifier {
   ScienceModel? _science;
   SportsModel? _sports;
   TechonolgyModel? _techonolgy;
-
-  // Indicates if the data is currently being fetched
   bool _isLoading = false;
 
   // Getters to expose private variables
   int get current => _current;
-  //--------------------------------
+  bool get isLoading => _isLoading;
+  PageController get pageController => _pageController;
   BusinessModel? get business => _business;
   EntertainmentModel? get entertainment => _entertainment;
   GeneralModel? get general => _general;
@@ -57,114 +59,66 @@ class CategoriesProvider with ChangeNotifier {
   ScienceModel? get science => _science;
   SportsModel? get sports => _sports;
   TechonolgyModel? get techonolgy => _techonolgy;
-  //-----------------------------------------
-  bool get isLoading => _isLoading;
-  PageController get pageController => _pageController;
 
   // Methods to fetch categories
   Future<void> fetchCategoryBusiness() async {
-    _isLoading = true;
-    notifyListeners();
-
-    // Fetch categories from the service
+    _setLoading(true);
     _business = await _service.getCategoryBusiness();
-
-    _isLoading = false;
-    notifyListeners();
+    _setLoading(false);
   }
 
   Future<void> fetchCategoryEntertainment() async {
-    _isLoading = true;
-    notifyListeners();
-
-    // Fetch categories from the service
+    _setLoading(true);
     _entertainment = await _service.getCategoryEntertainment();
-
-    _isLoading = false;
-    notifyListeners();
+    _setLoading(false);
   }
 
   Future<void> fetchCategoryGeneral() async {
-    _isLoading = true;
-    notifyListeners();
-
-    // Fetch categories from the service
+    _setLoading(true);
     _general = await _service.getCategoryGeneral();
-
-    _isLoading = false;
-    notifyListeners();
-  }
-
-  Future<void> fetchCategoryScience() async {
-    _isLoading = true;
-    notifyListeners();
-
-    // Fetch categories from the service
-    _science = await _service.getCategoryScience();
-
-    _isLoading = false;
-    notifyListeners();
-  }
-
-  Future<void> fetchCategorySports() async {
-    _isLoading = true;
-    notifyListeners();
-
-    // Fetch categories from the service
-    _sports = await _service.getCategorySports();
-
-    _isLoading = false;
-    notifyListeners();
-  }
-
-  Future<void> fetchCategoryTechnology() async {
-    _isLoading = true;
-    notifyListeners();
-
-    // Fetch categories from the service
-    _techonolgy = await _service.getCategoryTechnology();
-
-    _isLoading = false;
-    notifyListeners();
+    _setLoading(false);
   }
 
   Future<void> fetchCategoryHealth() async {
-    _isLoading = true;
-    notifyListeners();
-
-    // Fetch categories from the service
+    _setLoading(true);
     _health = await _service.getCategoryHealth();
+    _setLoading(false);
+  }
 
-    _isLoading = false;
-    notifyListeners();
+  Future<void> fetchCategoryScience() async {
+    _setLoading(true);
+    _science = await _service.getCategoryScience();
+    _setLoading(false);
+  }
+
+  Future<void> fetchCategorySports() async {
+    _setLoading(true);
+    _sports = await _service.getCategorySports();
+    _setLoading(false);
+  }
+
+  Future<void> fetchCategoryTechnology() async {
+    _setLoading(true);
+    _techonolgy = await _service.getCategoryTechnology();
+    _setLoading(false);
   }
 
   // Method to set the current category index and update the page view
   void setCurrentCategory(int index) {
-    _current = index; // Update the current category index
-    _pageController.jumpToPage(index); // Jump to the selected page
+    _current = index;
+    _pageController.jumpToPage(index);
     notifyListeners();
   }
 
   // Method to synchronize scroll offset with the list view
   void syncScroll(double offset) {
-    listViewController.jumpTo(offset); // Sync the scroll offset
+    listViewController.jumpTo(offset);
     notifyListeners();
   }
 
   // Method to animate to a specific category in the list view
   void animateToCategory(int index) {
-    double offset = 0;
-
-    // Calculate the offset based on the width of previous categories
-    for (int i = 0; i < index; i++) {
-      final String name = categoriesList[i];
-      final double width = _calculateCategoryWidth(name, i);
-      offset += width;
-    }
-    offset += 8.0 * index; // Add space between items
-
-    // Animate to the calculated offset
+    double offset = _calculateOffset(index);
     listViewController.animateTo(
       offset,
       duration: const Duration(milliseconds: 300),
@@ -172,18 +126,34 @@ class CategoriesProvider with ChangeNotifier {
     );
   }
 
+  // Private method to calculate the offset based on the width of previous categories
+  double _calculateOffset(int index) {
+    double offset = 0;
+    for (int i = 0; i < index; i++) {
+      offset += _calculateCategoryWidth(categoriesList[i], i);
+    }
+    offset += 8.0 * index;
+    return offset;
+  }
+
   // Private method to calculate the width of a category item based on its name
   double _calculateCategoryWidth(String categoryName, int index) {
     if (index == 0) {
-      return 33.0; // Width for the first category
+      return 33.0;
     } else if (categoryName.length >= 10) {
-      return 115.0; // Width for longer category names
+      return 115.0;
     } else {
-      return 70.0; // Default width for other categories
+      return 70.0;
     }
   }
 
-//Function to fromat date
+  // Private method to set loading state
+  void _setLoading(bool value) {
+    _isLoading = value;
+    notifyListeners();
+  }
+
+  // Function to format date
   String formatDate(String date) {
     return NewsHelper.formatDate(date);
   }
